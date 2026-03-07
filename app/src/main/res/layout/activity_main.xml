@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/full_background"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/volume"
+        android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        app:srcCompat ="@drawable/volume"
+        android:layout_gravity="end"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+    />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:srcCompat ="@drawable/frame1"
+                    android:padding="10dp"
+                    android:id="@+id/bird"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bird"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        app:srcCompat ="@drawable/frame2"
+                        android:padding="10dp"
+                        android:id="@+id/enemy1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enemy1"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            app:srcCompat ="@drawable/frame3"
+                            android:padding="10dp"
+                            android:id="@+id/enemy2"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Enemy2"
+                            android:textSize="18sp"
+                            android:textColor="@color/black"
+                            android:layout_gravity="center"/>
+                    </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                app:srcCompat ="@drawable/frame3"
+                                android:padding="10dp"
+                                android:id="@+id/enemy3"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='Enemy3'
+                                android:textSize="18sp"
+                                android:textColor="@color/black"
+                                android:layout_gravity="center"/>
+                        </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                >
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    app:srcCompat ="@drawable/coin"
+                                    android:padding="10dp"
+                                    android:id="@+id/coin"
+                                 />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="10 Points"
+                                    android:textSize="18sp"
+                                    android:textColor="@color/black"
+                                    android:layout_gravity="center"/>
+
+
+
+
+
+                            </LinearLayout>
+        </LinearLayout>
+
+    <TextView
+        android:layout_width="610dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="50dp"
+        android:text="         The innocent bird needs to reach 500 points in order to
+ escape from
+    enemies and reach its nest. Can you help the bird in this challenging task?"
+        android:textColor="#FF0000"
+        android:textSize="18sp" />
+
+    <Button
+        android:background="@drawable/background_button"
+        style="@style/Widget.AppCompat.Button"
+        android:id="@+id/button_start"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="150dp"
+
+        android:backgroundTint="@null"
+        android:letterSpacing="0.1"
+        android:text="START"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        android:backgroundTintMode="@null"
+        android:stateListAnimator="@null"/>
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
