@@ -13,7 +13,7 @@
         android:id="@+id/volume"
         android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-        app:srcCompat ="@drawable/volume"
+        app:srcCompat ="@drawable/unmute"
         android:layout_gravity="end"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -76,7 +76,7 @@
                         <ImageView
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            app:srcCompat ="@drawable/frame3"
+                            app:srcCompat ="@drawable/frame4"
                             android:padding="10dp"
                             android:id="@+id/enemy2"/>
 

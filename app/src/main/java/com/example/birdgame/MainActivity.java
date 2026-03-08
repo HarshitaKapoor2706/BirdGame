@@ -67,7 +67,8 @@ else {
         mainBinding.buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaPlayer.reset();
+                mediaPlayer.stop();
+                mediaPlayer.release();
                 mainBinding.volume.setImageResource(R.drawable.unmute);
                 Intent intent = new Intent(MainActivity.this,GameActivity.class);
                 startActivity(intent);
