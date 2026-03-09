@@ -182,7 +182,7 @@ public class GameActivity extends AppCompatActivity {
             }
         }
         gameBinding.coin1.setX(coin1x);
-        gameBinding.coin2.setY(coin1y);
+        gameBinding.coin1.setY(coin1y);
 
         coin2x=coin2x - (ScreenWidth/110);
         if(coin2x<0){
@@ -207,8 +207,8 @@ public class GameActivity extends AppCompatActivity {
     public void collisioncontrol(){
 
         //setting centre pt of enemy one char
-        int centreenemy1x = enemy1x + gameBinding.imageView4.getWidth()/2;
-        int centreenemy1y = enemy1y+ gameBinding.imageView4.getHeight()/2;
+        int centreenemy1x = enemy1x + gameBinding.imageView6.getWidth()/2;
+        int centreenemy1y = enemy1y+ gameBinding.imageView6.getHeight()/2;
 
 //checks for collissison
         if(centreenemy1x >=birdX
@@ -218,8 +218,8 @@ public class GameActivity extends AppCompatActivity {
 enemy1x= ScreenWidth+200;
 right--;
         }
-        int centreenemy2x = enemy2x + gameBinding.imageView5.getWidth()/2;
-        int centreenemy2y = enemy2y+ gameBinding.imageView5.getHeight()/2;
+        int centreenemy2x = enemy2x + gameBinding.imageView4.getWidth()/2;
+        int centreenemy2y = enemy2y+ gameBinding.imageView4.getHeight()/2;
 
 //checks for collissison
         if(centreenemy2x >=birdX
@@ -229,8 +229,8 @@ right--;
             enemy2x= ScreenWidth+200;
             right--;
         }
-        int centreenemy3x = enemy3x + gameBinding.imageView6.getWidth()/2;
-        int centreenemy3y = enemy3y+ gameBinding.imageView6.getHeight()/2;
+        int centreenemy3x = enemy3x + gameBinding.imageView5.getWidth()/2;
+        int centreenemy3y = enemy3y+ gameBinding.imageView5.getHeight()/2;
 
 //checks for collissison
         if(centreenemy3x >=birdX
@@ -254,7 +254,7 @@ right--;
             gameBinding.textView2.setText("" +score);
         }
         int centrecoin2x =  coin2x+ gameBinding.coin2.getWidth()/2;
-        int centrecoin2y = coin2x+ gameBinding.coin2.getHeight()/2;
+        int centrecoin2y = coin2y+ gameBinding.coin2.getHeight()/2;
 
 //checks for collissison
         if(centrecoin2x >=birdX
@@ -270,7 +270,7 @@ right--;
                 gameBinding.imageView9.setImageResource(R.drawable.grey);
             if (right == 1)
                 gameBinding.imageView8.setImageResource(R.drawable.grey);
-            handler.postDelayed(runnable, 20);
+
         }
             else if(score>= 200){
                 handler.removeCallbacks(runnable);
@@ -278,7 +278,9 @@ right--;
 
                 handler.removeCallbacks(runnable);
             gameBinding.imageView7.setImageResource(R.drawable.grey);
-            Intent intent =
+            Intent intent = new Intent(GameActivity.this , ResultActivity.class);
+            intent.putExtra("score",score);
+            startActivity(intent);
 
             
         }
