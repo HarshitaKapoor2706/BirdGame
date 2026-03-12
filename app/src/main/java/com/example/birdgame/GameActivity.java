@@ -24,8 +24,8 @@ public class GameActivity extends AppCompatActivity {
     ConstraintLayout constraintLayout;
     boolean touchcontrol = false;
     boolean begincontrol = false;
-    Runnable runnable;
-    Handler handler;
+    Runnable runnable,runnable2;
+    Handler handler,handler2;
     //positions
     int birdX, enemy1x , enemy2x,enemy3x, coin1x, coin2x;
     int birdY,enemy1y,enemy2y,enemy3y,coin1y,coin2y;
@@ -274,6 +274,36 @@ right--;
         }
             else if(score>= 200){
                 handler.removeCallbacks(runnable);
+                constraintLayout.setEnabled(false);
+                gameBinding.startinfo.setVisibility(View.VISIBLE);
+            gameBinding.startinfo.setText("CONGRATULATIONS! You won the game.");
+            gameBinding.imageView6.setVisibility(View.INVISIBLE);
+            gameBinding.imageView5.setVisibility(View.INVISIBLE);
+            gameBinding.imageView4.setVisibility(View.INVISIBLE);
+            gameBinding.coin1.setVisibility(View.INVISIBLE);
+            gameBinding.coin2.setVisibility(View.INVISIBLE);
+            handler2=new Handler();
+            runnable2 = new Runnable() {
+                @Override
+                public void run() {
+
+                    birdX = birdX + (ScreenWidth / 300);
+                    gameBinding.imageViewbird.setX(birdX);
+                    gameBinding.imageViewbird.setY(ScreenHeight / 2f);
+                    if (birdX <= ScreenWidth) {
+                        handler2.postDelayed(runnable2, 20);
+                    } else {
+                        handler2.removeCallbacks(runnable2);
+                        Intent intent = new Intent(GameActivity.this, ResultActivity.class);
+                        intent.putExtra("score", score);
+                        startActivity(intent);
+                    }
+
+                }
+
+            };
+            handler2.post(runnable2);
+
             } else if (right == 0) {
 
                 handler.removeCallbacks(runnable);
