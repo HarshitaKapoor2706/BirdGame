@@ -2,6 +2,7 @@ package com.example.birdgame;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
@@ -27,21 +28,35 @@ public class GameActivity extends AppCompatActivity {
     Runnable runnable,runnable2;
     Handler handler,handler2;
     //positions
-    int birdX, enemy1x , enemy2x,enemy3x, coin1x, coin2x;
-    int birdY,enemy1y,enemy2y,enemy3y,coin1y,coin2y;
+    int birdX, enemy1x , enemy2x,enemy3x, coin1x, coin2x,coin3x;
+    int birdY,enemy1y,enemy2y,enemy3y,coin1y,coin2y,coin3y;
     //dimensions of screen
     int ScreenWidth;
     int ScreenHeight;
     int right=3;
     int score = 0;
+    SoundPool soundPool;
+    int coinSound;
+    int loosesound;
+    long startTime;
+    boolean redCoinsStarted = false;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        startTime = System.currentTimeMillis();
+        soundPool = new SoundPool.Builder().setMaxStreams(5).build();
+        coinSound = soundPool.load(this, R.raw.coin, 1);
+        loosesound= soundPool.load(this , R.raw.loosing,1);
         super.onCreate(savedInstanceState);
         gameBinding = ActivityGameBinding.inflate(getLayoutInflater());
         setContentView(gameBinding.getRoot());
         constraintLayout=gameBinding.getRoot();
+        long currentTime = System.currentTimeMillis();
+
+        if (currentTime - startTime > 10000) { // 10 seconds
+            redCoinsStarted = true;
+        }
         constraintLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -115,6 +130,9 @@ public class GameActivity extends AppCompatActivity {
         gameBinding.imageView4.setVisibility(View.VISIBLE);
         gameBinding.coin1.setVisibility(View.VISIBLE);
         gameBinding.coin2.setVisibility(View.VISIBLE);
+        gameBinding.red.setVisibility(View.VISIBLE);
+
+
 
         enemy1x=enemy1x - (ScreenWidth/150);
         if(enemy1x<0){
@@ -201,6 +219,23 @@ public class GameActivity extends AppCompatActivity {
         gameBinding.coin2.setX(coin2x);
         gameBinding.coin2.setY(coin2y);
 
+        coin3x=coin3x - (ScreenWidth/120);
+        if(coin3x<0){
+            coin3x=ScreenWidth+200;
+            coin3y =(int) Math.floor(Math.random()*ScreenHeight);
+
+            //preventring char to go off the screen
+            if(coin3y<=0){
+                coin3y=0;
+            }
+            if(coin3y>=(ScreenHeight- gameBinding.red.getHeight()))
+            {
+                coin3y=(ScreenHeight-gameBinding.red.getHeight());
+            }
+        }
+        gameBinding.red.setX(coin3x);
+        gameBinding.red.setY(coin3y);
+
 
 
     }
@@ -252,9 +287,29 @@ right--;
             coin1x= ScreenWidth+200;
             score = score+10;
             gameBinding.textView2.setText("" +score);
+            soundPool.play(coinSound, 1, 1, 0, 0, 1);
+        }
+
+
+
+        int centrecoin3x = coin3x + gameBinding.red.getWidth()/2;
+        int centrecoin3y = coin3y+ gameBinding.red.getHeight()/2;
+
+//checks for collissison
+        if(centrecoin3x >=birdX
+                && centrecoin3x <= birdX + (gameBinding.imageViewbird
+                .getWidth())
+                && centrecoin3y >= birdY
+                && centrecoin3y<= birdY +  (gameBinding.imageViewbird.getHeight())){
+            coin3x= ScreenWidth+200;
+            score = score+20;
+            gameBinding.textView2.setText("" +score);
+            soundPool.play(coinSound, 1, 1, 0, 0, 1);
         }
         int centrecoin2x =  coin2x+ gameBinding.coin2.getWidth()/2;
         int centrecoin2y = coin2y+ gameBinding.coin2.getHeight()/2;
+
+
 
 //checks for collissison
         if(centrecoin2x >=birdX
@@ -264,6 +319,7 @@ right--;
             coin2x= ScreenWidth+200;
             score=score+10;
             gameBinding.textView2.setText("" +score);
+            soundPool.play(coinSound, 1, 1, 0, 0, 1);
         }
         if(right>0 && score<200) {
             if (right == 2)
@@ -282,6 +338,7 @@ right--;
             gameBinding.imageView4.setVisibility(View.INVISIBLE);
             gameBinding.coin1.setVisibility(View.INVISIBLE);
             gameBinding.coin2.setVisibility(View.INVISIBLE);
+            gameBinding.red.setVisibility(View.INVISIBLE);
             handler2=new Handler();
             runnable2 = new Runnable() {
                 @Override
@@ -305,12 +362,13 @@ right--;
             handler2.post(runnable2);
 
             } else if (right == 0) {
-
+            soundPool.play(loosesound, 1, 1, 0, 0, 1);
                 handler.removeCallbacks(runnable);
             gameBinding.imageView9.setImageResource(R.drawable.grey);
             Intent intent = new Intent(GameActivity.this , ResultActivity.class);
             intent.putExtra("score",score);
             startActivity(intent);
+
 
             
         }

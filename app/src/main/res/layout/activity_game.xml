@@ -151,4 +151,14 @@
         app:layout_constraintVertical_bias="0.057"
         app:srcCompat="@drawable/heart" />
 
+    <ImageView
+        android:id="@+id/red"
+        android:layout_width="105dp"
+        android:layout_height="99dp"
+        android:layout_marginTop="32dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/redcoin"
+        tools:layout_editor_absoluteX="536dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
