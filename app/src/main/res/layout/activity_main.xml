@@ -146,29 +146,30 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="50dp"
-        android:text="         The innocent bird needs to reach 500 points in order to
+        android:text="         The innocent bird needs to reach 200 points in order to
  escape from
     enemies and reach its nest. Can you help the bird in this challenging task?"
         android:textColor="#FF0000"
         android:textSize="18sp" />
 
     <Button
-        android:background="@drawable/background_button"
-        style="@style/Widget.AppCompat.Button"
         android:id="@+id/button_start"
+        style="@style/Widget.AppCompat.Button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginStart="150dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="150dp"
 
-        android:backgroundTint="@null"
+
+        android:background="@color/design_default_color_error"
+        android:backgroundTint="#750A0A"
+
+        android:backgroundTintMode="src_in"
         android:letterSpacing="0.1"
         android:text="START"
-        android:textColor="#FF0000"
-        android:textSize="30sp"
-        android:backgroundTintMode="@null"
-        android:stateListAnimator="@null"/>
+        android:textColor="@color/white"
+        android:textSize="30sp" />
 
 
 </LinearLayout>

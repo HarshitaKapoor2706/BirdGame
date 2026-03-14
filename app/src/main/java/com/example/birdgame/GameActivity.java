@@ -267,7 +267,7 @@ right--;
         }
         if(right>0 && score<200) {
             if (right == 2)
-                gameBinding.imageView9.setImageResource(R.drawable.grey);
+                gameBinding.imageView.setImageResource(R.drawable.grey);
             if (right == 1)
                 gameBinding.imageView8.setImageResource(R.drawable.grey);
 
@@ -307,7 +307,7 @@ right--;
             } else if (right == 0) {
 
                 handler.removeCallbacks(runnable);
-            gameBinding.imageView7.setImageResource(R.drawable.grey);
+            gameBinding.imageView9.setImageResource(R.drawable.grey);
             Intent intent = new Intent(GameActivity.this , ResultActivity.class);
             intent.putExtra("score",score);
             startActivity(intent);
@@ -315,7 +315,7 @@ right--;
             
         }
     }
-        
+
 
 
     }

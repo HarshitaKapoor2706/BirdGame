@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/full_background"
     tools:context=".ResultActivity">
 
     <TextView
@@ -13,6 +14,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Highest Score : 200"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -22,10 +26,13 @@
 
     <TextView
         android:id="@+id/result"
-        android:layout_width="129dp"
-        android:layout_height="36dp"
+        android:layout_width="384dp"
+        android:layout_height="48dp"
         android:gravity="center"
         android:text="Congratulations"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -39,6 +46,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Your Score : 50"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/highestscore"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -53,8 +63,13 @@
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="75dp"
-        android:background="@drawable/buttonagainbg"
+        android:backgroundTint="#621D1B"
         android:text="Play Again"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textColorLink="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

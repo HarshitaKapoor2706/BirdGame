@@ -13,7 +13,8 @@
         android:theme="@style/Theme.BirdGame">
         <activity
             android:name=".ResultActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".GameActivity"
             android:exported="false"
